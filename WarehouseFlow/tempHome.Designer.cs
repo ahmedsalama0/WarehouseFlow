@@ -1,6 +1,6 @@
 ﻿namespace WarehouseFlow
 {
-    partial class formTemplate
+    partial class tempHome
     {
         /// <summary>
         /// Required designer variable.
