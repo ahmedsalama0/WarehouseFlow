@@ -15,7 +15,7 @@ namespace WarehouseFlow
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            formWarehouse.visi
+           // formWarehouse.visi
         }
     }
 }
