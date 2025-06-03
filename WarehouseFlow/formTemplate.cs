@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WarehouseFlow
 {
-    public partial class entityForm : Form
+    public partial class formTemplate : Form
     {
-        public entityForm()
+        public formTemplate()
         {
             InitializeComponent();
             this.Width = 1000;

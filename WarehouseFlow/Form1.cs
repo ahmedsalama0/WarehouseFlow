@@ -1,12 +1,14 @@
 namespace WarehouseFlow
 {
-    public partial class formMain : Form
+    public partial class FormHome : Form
     {
-        entityForm frmWareHouse = new entityForm();
-        public formMain()
+
+       
+
+        public FormHome()
         {
             InitializeComponent();
-            frmWareHouse.FormClosed += (s, e) => this.Visible = true;
+            //frmWareHouse.FormClosed += (s, e) => this.Visible = true;
         }
 
 
@@ -17,8 +19,7 @@ namespace WarehouseFlow
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            frmWareHouse.Show();
+           
         }
 
         private void textBoxMain_TextChanged(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace WarehouseFlow
 {
-    partial class entityForm
+    partial class formTemplate
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,7 @@
             label1.TabIndex = 5;
             label1.Text = " Select an Action:";
             // 
-            // entityForm
+            // formTemplate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -71,7 +71,7 @@
             Controls.Add(dataGridViewWarehouse);
             MaximumSize = new Size(1000, 500);
             MinimumSize = new Size(1000, 500);
-            Name = "entityForm";
+            Name = "formTemplate";
             Text = "formWarehouse";
             ((System.ComponentModel.ISupportInitialize)dataGridViewWarehouse).EndInit();
             ResumeLayout(false);

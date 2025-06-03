@@ -1,6 +1,6 @@
 ﻿namespace WarehouseFlow
 {
-    partial class formMain
+    partial class FormHome
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,6 +30,9 @@
         {
             textBoxMain = new TextBox();
             btnWarehouse = new Button();
+            btnItem = new Button();
+            btnSupplier = new Button();
+            btnClient = new Button();
             SuspendLayout();
             // 
             // textBoxMain
@@ -55,17 +58,47 @@
             btnWarehouse.UseVisualStyleBackColor = true;
             btnWarehouse.Click += btnWarehouse_Click;
             // 
-            // formMain
+            // btnItem
+            // 
+            btnItem.Location = new Point(38, 151);
+            btnItem.Name = "btnItem";
+            btnItem.Size = new Size(173, 29);
+            btnItem.TabIndex = 2;
+            btnItem.Text = "Item";
+            btnItem.UseVisualStyleBackColor = true;
+            // 
+            // btnSupplier
+            // 
+            btnSupplier.Location = new Point(38, 216);
+            btnSupplier.Name = "btnSupplier";
+            btnSupplier.Size = new Size(173, 29);
+            btnSupplier.TabIndex = 3;
+            btnSupplier.Text = "Supplier";
+            btnSupplier.UseVisualStyleBackColor = true;
+            // 
+            // btnClient
+            // 
+            btnClient.Location = new Point(38, 294);
+            btnClient.Name = "btnClient";
+            btnClient.Size = new Size(173, 29);
+            btnClient.TabIndex = 4;
+            btnClient.Text = "Client";
+            btnClient.UseVisualStyleBackColor = true;
+            // 
+            // tempHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 453);
+            Controls.Add(btnClient);
+            Controls.Add(btnSupplier);
+            Controls.Add(btnItem);
             Controls.Add(btnWarehouse);
             Controls.Add(textBoxMain);
             MaximumSize = new Size(1000, 500);
             MinimumSize = new Size(1000, 500);
-            Name = "formMain";
-            Text = "Form1";
+            Name = "formHomePage";
+            Text = "Home";
             Resize += formMain_Resize;
             ResumeLayout(false);
             PerformLayout();
@@ -75,5 +108,8 @@
 
         private TextBox textBoxMain;
         private Button btnWarehouse;
+        private Button btnItem;
+        private Button btnSupplier;
+        private Button btnClient;
     }
 }
