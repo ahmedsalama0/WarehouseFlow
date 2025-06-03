@@ -10,11 +10,42 @@ using System.Windows.Forms;
 
 namespace WarehouseFlow
 {
-    public partial class formWarehouse: Form
+    public partial class entityForm : Form
     {
-        public formWarehouse()
+        public entityForm()
         {
             InitializeComponent();
+            this.Width = 1000;
+            this.Height = 500;
+
+            optionsBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            optionsBox.Items.Add("Add");
+            optionsBox.Items.Add("Update");
+            optionsBox.Items.Add("Delete");
+
+
+            //optionsBox.Items.Add("Name");
+            //optionsBox.Items.Add("Address");
+            //optionsBox.Items.Add("Supervisor");
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{optionsBox.SelectedIndex}");
+            int SelectedOption = optionsBox.SelectedIndex;
+            switch(SelectedOption)
+            {
+                //Add
+                case 0:
+                    break;
+                //update
+                case 1:
+                    break;
+                //delete
+                case 2:
+                    break;
+            }
         }
     }
 }

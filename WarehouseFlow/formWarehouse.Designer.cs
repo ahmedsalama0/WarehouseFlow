@@ -1,6 +1,6 @@
 ﻿namespace WarehouseFlow
 {
-    partial class formWarehouse
+    partial class entityForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "formWarehouse";
+            dataGridViewWarehouse = new DataGridView();
+            optionsBox = new ComboBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewWarehouse).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridViewWarehouse
+            // 
+            dataGridViewWarehouse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewWarehouse.Location = new Point(398, 12);
+            dataGridViewWarehouse.Name = "dataGridViewWarehouse";
+            dataGridViewWarehouse.RowHeadersWidth = 51;
+            dataGridViewWarehouse.Size = new Size(544, 429);
+            dataGridViewWarehouse.TabIndex = 3;
+            // 
+            // optionsBox
+            // 
+            optionsBox.FormattingEnabled = true;
+            optionsBox.Location = new Point(74, 44);
+            optionsBox.Name = "optionsBox";
+            optionsBox.Size = new Size(151, 28);
+            optionsBox.TabIndex = 4;
+            optionsBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(74, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 20);
+            label1.TabIndex = 5;
+            label1.Text = " Select an Action:";
+            // 
+            // entityForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(982, 453);
+            Controls.Add(label1);
+            Controls.Add(optionsBox);
+            Controls.Add(dataGridViewWarehouse);
+            MaximumSize = new Size(1000, 500);
+            MinimumSize = new Size(1000, 500);
+            Name = "entityForm";
+            Text = "formWarehouse";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewWarehouse).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+        private DataGridView dataGridViewWarehouse;
+        private ComboBox optionsBox;
+        private Label label1;
     }
 }

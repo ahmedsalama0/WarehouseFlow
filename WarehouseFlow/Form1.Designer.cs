@@ -34,14 +34,16 @@
             // 
             // textBoxMain
             // 
+            textBoxMain.CausesValidation = false;
             textBoxMain.Cursor = Cursors.No;
-            textBoxMain.Location = new Point(186, 12);
+            textBoxMain.Location = new Point(295, 12);
             textBoxMain.Name = "textBoxMain";
             textBoxMain.ReadOnly = true;
             textBoxMain.Size = new Size(411, 27);
-            textBoxMain.TabIndex = 0;
+            textBoxMain.TabIndex = 1;
             textBoxMain.Text = "Choose an Item to View";
             textBoxMain.TextAlign = HorizontalAlignment.Center;
+            textBoxMain.TextChanged += textBoxMain_TextChanged;
             // 
             // btnWarehouse
             // 
@@ -57,11 +59,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(768, 363);
+            ClientSize = new Size(982, 453);
             Controls.Add(btnWarehouse);
             Controls.Add(textBoxMain);
-            MaximumSize = new Size(786, 410);
-            MinimumSize = new Size(786, 410);
+            MaximumSize = new Size(1000, 500);
+            MinimumSize = new Size(1000, 500);
             Name = "formMain";
             Text = "Form1";
             Resize += formMain_Resize;
