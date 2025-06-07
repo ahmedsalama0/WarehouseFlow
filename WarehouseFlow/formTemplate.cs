@@ -12,6 +12,7 @@ namespace WarehouseFlow
 {
     public partial class formTemplate : Form
     {
+       
         public formTemplate()
         {
             InitializeComponent();
@@ -27,10 +28,10 @@ namespace WarehouseFlow
             //optionsBox.Items.Add("Name");
             //optionsBox.Items.Add("Address");
             //optionsBox.Items.Add("Supervisor");
-
+          
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             MessageBox.Show($"{optionsBox.SelectedIndex}");
             int SelectedOption = optionsBox.SelectedIndex;

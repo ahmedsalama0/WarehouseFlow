@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        protected void InitializeComponent()
         {
             dataGridViewWarehouse = new DataGridView();
             optionsBox = new ComboBox();
@@ -37,10 +37,10 @@
             // dataGridViewWarehouse
             // 
             dataGridViewWarehouse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewWarehouse.Location = new Point(398, 12);
+            dataGridViewWarehouse.Location = new Point(360, 12);
             dataGridViewWarehouse.Name = "dataGridViewWarehouse";
             dataGridViewWarehouse.RowHeadersWidth = 51;
-            dataGridViewWarehouse.Size = new Size(544, 429);
+            dataGridViewWarehouse.Size = new Size(582, 429);
             dataGridViewWarehouse.TabIndex = 3;
             // 
             // optionsBox
@@ -72,15 +72,14 @@
             MaximumSize = new Size(1000, 500);
             MinimumSize = new Size(1000, 500);
             Name = "formTemplate";
-            Text = "formWarehouse";
             ((System.ComponentModel.ISupportInitialize)dataGridViewWarehouse).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private DataGridView dataGridViewWarehouse;
-        private ComboBox optionsBox;
-        private Label label1;
+        protected DataGridView dataGridViewWarehouse;
+        protected ComboBox optionsBox;
+        protected Label label1;
     }
 }

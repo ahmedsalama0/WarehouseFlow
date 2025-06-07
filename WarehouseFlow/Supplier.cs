@@ -13,6 +13,7 @@ namespace WarehouseFlow
         [Key]
         public int Id { get; set; }
 
+        [StringLength(20)] public string? Name { get; set; }
         [StringLength(20)] public string? Mobile { get; set; }
         [StringLength(20)] public string? Fax { get; set; }
         [StringLength(20)] public string? Phone { get; set; }

@@ -66,6 +66,7 @@
             btnItem.TabIndex = 2;
             btnItem.Text = "Item";
             btnItem.UseVisualStyleBackColor = true;
+            btnItem.Click += btnItem_Click;
             // 
             // btnSupplier
             // 
@@ -75,6 +76,7 @@
             btnSupplier.TabIndex = 3;
             btnSupplier.Text = "Supplier";
             btnSupplier.UseVisualStyleBackColor = true;
+            btnSupplier.Click += btnSupplier_Click;
             // 
             // btnClient
             // 
@@ -84,8 +86,9 @@
             btnClient.TabIndex = 4;
             btnClient.Text = "Client";
             btnClient.UseVisualStyleBackColor = true;
+            btnClient.Click += btnClient_Click;
             // 
-            // tempHome
+            // FormHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -97,7 +100,7 @@
             Controls.Add(textBoxMain);
             MaximumSize = new Size(1000, 500);
             MinimumSize = new Size(1000, 500);
-            Name = "formHomePage";
+            Name = "FormHome";
             Text = "Home";
             Resize += formMain_Resize;
             ResumeLayout(false);
