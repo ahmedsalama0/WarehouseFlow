@@ -38,6 +38,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            btnHome = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(26, 385);
+            btnAdd.Location = new Point(20, 287);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(168, 385);
+            btnUpdate.Location = new Point(162, 287);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(302, 385);
+            btnDelete.Location = new Point(296, 287);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // txtSupervisor
             // 
-            txtSupervisor.Location = new Point(51, 243);
+            txtSupervisor.Location = new Point(51, 212);
             txtSupervisor.Name = "txtSupervisor";
             txtSupervisor.PlaceholderText = "Supervisor";
             txtSupervisor.Size = new Size(288, 27);
@@ -107,7 +108,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 17);
+            label1.Location = new Point(51, 28);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 7;
@@ -126,17 +127,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(51, 220);
+            label3.Location = new Point(51, 189);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
             label3.TabIndex = 9;
             label3.Text = "Supervisor";
+            // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(12, 397);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(94, 29);
+            btnHome.TabIndex = 10;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // formWarehouse
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1030, 450);
+            ControlBox = false;
+            Controls.Add(btnHome);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -147,6 +160,7 @@
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "formWarehouse";
             Text = "formWarehouse";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -166,5 +180,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button btnHome;
     }
 }

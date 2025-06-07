@@ -44,21 +44,22 @@
             txtWebsite = new TextBox();
             label6 = new Label();
             txtMobile = new TextBox();
+            btnHome = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(467, 12);
+            dataGridView1.Location = new Point(328, 12);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(463, 426);
+            dataGridView1.Size = new Size(602, 426);
             dataGridView1.TabIndex = 0;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(12, 409);
+            btnAdd.Location = new Point(21, 280);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 1;
@@ -68,7 +69,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(178, 409);
+            btnUpdate.Location = new Point(21, 346);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 2;
@@ -78,7 +79,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(343, 409);
+            btnDelete.Location = new Point(21, 409);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 3;
@@ -98,7 +99,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(20, 116);
+            label2.Location = new Point(178, 91);
             label2.Name = "label2";
             label2.Size = new Size(29, 20);
             label2.TabIndex = 5;
@@ -107,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(20, 180);
+            label3.Location = new Point(21, 91);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
             label3.TabIndex = 6;
@@ -116,7 +117,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(20, 243);
+            label4.Location = new Point(21, 174);
             label4.Name = "label4";
             label4.Size = new Size(46, 20);
             label4.TabIndex = 7;
@@ -125,7 +126,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(20, 311);
+            label5.Location = new Point(178, 174);
             label5.Name = "label5";
             label5.Size = new Size(62, 20);
             label5.TabIndex = 8;
@@ -140,36 +141,37 @@
             // 
             // txtFax
             // 
-            txtFax.Location = new Point(20, 139);
+            txtFax.Location = new Point(178, 114);
             txtFax.Name = "txtFax";
             txtFax.Size = new Size(125, 27);
             txtFax.TabIndex = 10;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(20, 203);
+            txtPhone.Location = new Point(21, 114);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(125, 27);
             txtPhone.TabIndex = 11;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(20, 266);
+            txtEmail.Location = new Point(21, 197);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(125, 27);
             txtEmail.TabIndex = 12;
             // 
             // txtWebsite
             // 
-            txtWebsite.Location = new Point(20, 334);
+            txtWebsite.Location = new Point(178, 197);
             txtWebsite.Name = "txtWebsite";
             txtWebsite.Size = new Size(125, 27);
             txtWebsite.TabIndex = 13;
+            txtWebsite.TextChanged += txtWebsite_TextChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(21, 65);
+            label6.Location = new Point(178, 12);
             label6.Name = "label6";
             label6.Size = new Size(56, 20);
             label6.TabIndex = 14;
@@ -177,16 +179,28 @@
             // 
             // txtMobile
             // 
-            txtMobile.Location = new Point(21, 88);
+            txtMobile.Location = new Point(178, 35);
             txtMobile.Name = "txtMobile";
             txtMobile.Size = new Size(125, 27);
             txtMobile.TabIndex = 15;
+            // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(178, 409);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(94, 29);
+            btnHome.TabIndex = 16;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // formSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(942, 450);
+            ControlBox = false;
+            Controls.Add(btnHome);
             Controls.Add(txtMobile);
             Controls.Add(label6);
             Controls.Add(txtWebsite);
@@ -203,6 +217,7 @@
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "formSupplier";
             Text = "formSupplier";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -228,5 +243,6 @@
         private TextBox txtWebsite;
         private Label label6;
         private TextBox txtMobile;
+        private Button btnHome;
     }
 }

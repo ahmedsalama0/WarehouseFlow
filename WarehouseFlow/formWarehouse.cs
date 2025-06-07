@@ -107,5 +107,12 @@ namespace WarehouseFlow
         {
 
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            //FormHome fh = new FormHome();
+            this.Close();
+            //fh.Show();
+        }
     }
 }

@@ -33,6 +33,7 @@
             btnItem = new Button();
             btnSupplier = new Button();
             btnClient = new Button();
+            btnExit = new Button();
             SuspendLayout();
             // 
             // textBoxMain
@@ -88,16 +89,31 @@
             btnClient.UseVisualStyleBackColor = true;
             btnClient.Click += btnClient_Click;
             // 
+            // btnExit
+            // 
+            btnExit.ForeColor = Color.Black;
+            btnExit.Location = new Point(38, 409);
+            btnExit.Margin = new Padding(0);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(173, 32);
+            btnExit.TabIndex = 5;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
+            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 453);
+            ControlBox = false;
+            Controls.Add(btnExit);
             Controls.Add(btnClient);
             Controls.Add(btnSupplier);
             Controls.Add(btnItem);
             Controls.Add(btnWarehouse);
             Controls.Add(textBoxMain);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximumSize = new Size(1000, 500);
             MinimumSize = new Size(1000, 500);
             Name = "FormHome";
@@ -114,5 +130,6 @@
         private Button btnItem;
         private Button btnSupplier;
         private Button btnClient;
+        private Button btnExit;
     }
 }

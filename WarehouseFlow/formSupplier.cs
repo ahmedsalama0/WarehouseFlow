@@ -101,6 +101,16 @@ namespace WarehouseFlow
             txtMobile.Clear(); txtFax.Clear(); txtPhone.Clear();
             txtEmail.Clear(); txtWebsite.Clear(); txtName.Clear();
         }
+
+        private void txtWebsite_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

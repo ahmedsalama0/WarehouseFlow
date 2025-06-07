@@ -42,6 +42,7 @@
             dataGridView2 = new DataGridView();
             btnUpdateUnit = new Button();
             btnDeleteUnit = new Button();
+            btnHome = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -174,11 +175,23 @@
             btnDeleteUnit.UseVisualStyleBackColor = true;
             btnDeleteUnit.Click += btnDeleteUnit_Click;
             // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(12, 339);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(94, 29);
+            btnHome.TabIndex = 14;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
+            // 
             // formItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 365);
+            ClientSize = new Size(800, 380);
+            ControlBox = false;
+            Controls.Add(btnHome);
             Controls.Add(btnDeleteUnit);
             Controls.Add(btnUpdateUnit);
             Controls.Add(dataGridView2);
@@ -193,6 +206,7 @@
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "formItem";
             Text = "ItemForm";
             Load += formItem_Load;
@@ -218,5 +232,6 @@
         private DataGridView dataGridView2;
         private Button btnUpdateUnit;
         private Button btnDeleteUnit;
+        private Button btnHome;
     }
 }

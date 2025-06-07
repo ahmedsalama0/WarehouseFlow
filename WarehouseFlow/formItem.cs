@@ -130,7 +130,7 @@ namespace WarehouseFlow
                 {
                     _context.ItemUnits.Remove(itemUnit);
                     _context.SaveChanges();
-                    _context.ItemUnits.Add(new ItemUnit { ItemId = id, Unit = txtUnit.Text});
+                    _context.ItemUnits.Add(new ItemUnit { ItemId = id, Unit = txtUnit.Text });
                     _context.SaveChanges();
                     LoadItems();
                     txtUnit.Clear();
@@ -152,6 +152,11 @@ namespace WarehouseFlow
                     txtUnit.Clear();
                 }
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 

@@ -3,10 +3,9 @@ namespace WarehouseFlow
     public partial class FormHome : Form
     {
 
-        formWarehouse formWarehouse = new formWarehouse();
-         formItem formItem = new formItem();
-        formSupplier formSupplier = new formSupplier();
-        formClient formClient = new formClient();
+
+
+
 
         //formTemplate formClient = new formTemplate();
         //formTemplate formSupplyPermit = new formTemplate();
@@ -18,10 +17,10 @@ namespace WarehouseFlow
         public FormHome()
         {
             InitializeComponent();
-            formWarehouse.FormClosed += (s, e) => this.Visible = true;
-            formItem.FormClosed += (s, e) => this.Visible = true;
-            formSupplier.FormClosed += (s, e) => this.Visible = true;
-            formClient.FormClosed += (s, e) => this.Visible = true;
+            //formWarehouse.FormClosed += (s, e) => this.Visible = true;
+            //formItem.FormClosed += (s, e) => this.Visible = true;
+            //formSupplier.FormClosed += (s, e) => this.Visible = true;
+            //formClient.FormClosed += (s, e) => this.Visible = true;
             //formSupplyPermit.FormClosed += (s, e) => this.Visible = true;
             //formReleasePermit.FormClosed += (s, e) => this.Visible = true;
 
@@ -35,34 +34,39 @@ namespace WarehouseFlow
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-           
+            formWarehouse formWarehouse = new formWarehouse();
+            formWarehouse.FormClosed += (s, e) => Show();
+            this.Hide();
             formWarehouse.Show();
-            this.Visible = false;
 
 
         }
 
         private void btnItem_Click(object sender, EventArgs e)
         {
-
-            formItem.Show();
+            formItem formItem = new formItem();
+            formItem.FormClosed += (s, e) => Visible = true;
             this.Visible = false;
+            formItem.Show();
 
 
         }
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-
+            formSupplier formSupplier = new formSupplier();
+            formSupplier.FormClosed += (s, e) => this.Show();
+            this.Hide();
             formSupplier.Show();
-            this.Visible = false;
-
 
         }
 
         private void btnClient_Click(object sender, EventArgs e)
         {
-            formClient.Show();
+            formClient formClient = new formClient();
+            formClient.FormClosed += (s, e) => this.Visible = true;
             this.Visible = false;
+            formClient.Show();
+            
 
 
         }
@@ -70,6 +74,11 @@ namespace WarehouseFlow
         private void textBoxMain_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
