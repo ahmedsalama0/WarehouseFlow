@@ -111,6 +111,13 @@ namespace WarehouseFlow
         {
             this.Close();
         }
+
+
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+            txtMobile.Clear(); txtFax.Clear(); txtPhone.Clear();
+            txtEmail.Clear(); txtWebsite.Clear(); txtName.Clear();
+        }
     }
 
 }

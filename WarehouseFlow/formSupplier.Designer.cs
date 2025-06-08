@@ -45,6 +45,7 @@
             label6 = new Label();
             txtMobile = new TextBox();
             btnHome = new Button();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(21, 346);
+            btnUpdate.Location = new Point(115, 280);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 2;
@@ -79,7 +80,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(21, 409);
+            btnDelete.Location = new Point(209, 280);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 3;
@@ -186,7 +187,7 @@
             // 
             // btnHome
             // 
-            btnHome.Location = new Point(178, 409);
+            btnHome.Location = new Point(21, 409);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(94, 29);
             btnHome.TabIndex = 16;
@@ -194,12 +195,23 @@
             btnHome.UseVisualStyleBackColor = true;
             btnHome.Click += btnHome_Click;
             // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(21, 245);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(94, 29);
+            btnClear.TabIndex = 17;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click_1;
+            // 
             // formSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(942, 450);
             ControlBox = false;
+            Controls.Add(btnClear);
             Controls.Add(btnHome);
             Controls.Add(txtMobile);
             Controls.Add(label6);
@@ -244,5 +256,6 @@
         private Label label6;
         private TextBox txtMobile;
         private Button btnHome;
+        private Button btnClear;
     }
 }

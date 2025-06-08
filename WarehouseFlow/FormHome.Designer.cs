@@ -61,7 +61,7 @@
             // 
             // btnItem
             // 
-            btnItem.Location = new Point(38, 151);
+            btnItem.Location = new Point(38, 155);
             btnItem.Name = "btnItem";
             btnItem.Size = new Size(173, 29);
             btnItem.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // btnSupplier
             // 
-            btnSupplier.Location = new Point(38, 216);
+            btnSupplier.Location = new Point(38, 224);
             btnSupplier.Name = "btnSupplier";
             btnSupplier.Size = new Size(173, 29);
             btnSupplier.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // btnClient
             // 
-            btnClient.Location = new Point(38, 294);
+            btnClient.Location = new Point(38, 293);
             btnClient.Name = "btnClient";
             btnClient.Size = new Size(173, 29);
             btnClient.TabIndex = 4;
