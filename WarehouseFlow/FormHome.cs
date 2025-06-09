@@ -66,7 +66,7 @@ namespace WarehouseFlow
             formClient.FormClosed += (s, e) => this.Visible = true;
             this.Visible = false;
             formClient.Show();
-            
+
 
 
         }
@@ -79,6 +79,15 @@ namespace WarehouseFlow
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSupplyPermit_Click(object sender, EventArgs e)
+        {
+            formSupplyPermit sp = new formSupplyPermit();
+            sp.FormClosed += (s, e) => this.Show();
+            this.Hide();
+            sp.Show();
+
         }
     }
 }

@@ -85,11 +85,14 @@ namespace WarehouseFlow
         {
             if (dataGridView1.CurrentRow != null)
             {
+                
                 txtName.Text = dataGridView1.CurrentRow.Cells["Name"].Value?.ToString();
                 dataGridView2.DataSource = _context.ItemUnits
                     .Where(i => i.ItemId == (int)dataGridView1.CurrentRow.Cells["Id"].Value)
                     .Select(i => new { i.ItemId, i.Unit }).ToList();
                 dataGridView2.Columns["ItemId"].Visible = false;
+
+                txtUnit.Clear();
             }
         }
 

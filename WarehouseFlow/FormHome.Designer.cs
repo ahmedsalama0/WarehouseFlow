@@ -34,6 +34,7 @@
             btnSupplier = new Button();
             btnClient = new Button();
             btnExit = new Button();
+            btnSupplyPermit = new Button();
             SuspendLayout();
             // 
             // textBoxMain
@@ -101,12 +102,23 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
+            // btnSupplyPermit
+            // 
+            btnSupplyPermit.Location = new Point(754, 86);
+            btnSupplyPermit.Name = "btnSupplyPermit";
+            btnSupplyPermit.Size = new Size(173, 29);
+            btnSupplyPermit.TabIndex = 6;
+            btnSupplyPermit.Text = "Supply Permit";
+            btnSupplyPermit.UseVisualStyleBackColor = true;
+            btnSupplyPermit.Click += btnSupplyPermit_Click;
+            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 453);
             ControlBox = false;
+            Controls.Add(btnSupplyPermit);
             Controls.Add(btnExit);
             Controls.Add(btnClient);
             Controls.Add(btnSupplier);
@@ -131,5 +143,6 @@
         private Button btnSupplier;
         private Button btnClient;
         private Button btnExit;
+        private Button btnSupplyPermit;
     }
 }
