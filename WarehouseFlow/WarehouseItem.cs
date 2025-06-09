@@ -18,6 +18,7 @@ namespace WarehouseFlow
 
         public int WarehouseId { get; set; }
         public int SupplierId { get; set; }
+        public int Quantity { get; set; }
         public DateTime EntryDate { get; set; }
 
         public Warehouse Warehouse { get; set; } = null!;
