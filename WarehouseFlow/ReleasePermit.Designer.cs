@@ -1,6 +1,6 @@
 ﻿namespace WarehouseFlow
 {
-    partial class formSupplyPermit
+    partial class ReleasePermit
     {
         /// <summary>
         /// Required designer variable.
@@ -22,10 +22,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
@@ -39,7 +35,7 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            txtSupplierId = new TextBox();
+            txtClientId = new TextBox();
             txtPermitDate = new TextBox();
             txtItemId = new TextBox();
             txtWarehouseId = new TextBox();
@@ -54,7 +50,6 @@
             btnAddItem = new Button();
             btnUpdateItem = new Button();
             btnDeleteItem = new Button();
-            btnClearItem = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -67,7 +62,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(500, 188);
             dataGridView1.TabIndex = 0;
-            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // dataGridView2
             // 
@@ -77,34 +71,33 @@
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.Size = new Size(500, 188);
             dataGridView2.TabIndex = 1;
-            dataGridView2.SelectionChanged += dataGridView2_SelectionChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(485, 5);
             label1.Name = "label1";
-            label1.Size = new Size(136, 20);
+            label1.Size = new Size(142, 20);
             label1.TabIndex = 2;
-            label1.Text = "Supply Permit Data";
+            label1.Text = "Release Permit Data";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(485, 227);
             label2.Name = "label2";
-            label2.Size = new Size(144, 20);
+            label2.Size = new Size(145, 20);
             label2.TabIndex = 3;
-            label2.Text = "Supplied Items Data";
+            label2.Text = "Released Items Data";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(12, 5);
             label3.Name = "label3";
-            label3.Size = new Size(83, 20);
+            label3.Size = new Size(66, 20);
             label3.TabIndex = 4;
-            label3.Text = "Supplier ID";
+            label3.Text = "Client ID";
             // 
             // label4
             // 
@@ -160,12 +153,12 @@
             label9.TabIndex = 10;
             label9.Text = "Shelf Life";
             // 
-            // txtSupplierId
+            // txtClientId
             // 
-            txtSupplierId.Location = new Point(12, 28);
-            txtSupplierId.Name = "txtSupplierId";
-            txtSupplierId.Size = new Size(125, 27);
-            txtSupplierId.TabIndex = 12;
+            txtClientId.Location = new Point(12, 28);
+            txtClientId.Name = "txtClientId";
+            txtClientId.Size = new Size(125, 27);
+            txtClientId.TabIndex = 12;
             // 
             // txtPermitDate
             // 
@@ -173,7 +166,6 @@
             txtPermitDate.Name = "txtPermitDate";
             txtPermitDate.Size = new Size(125, 27);
             txtPermitDate.TabIndex = 13;
-            txtPermitDate.TextChanged += txtPermitDate_TextChanged;
             // 
             // txtItemId
             // 
@@ -195,7 +187,6 @@
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(125, 27);
             txtQuantity.TabIndex = 16;
-            txtQuantity.TextChanged += txtQuantity_TextChanged;
             // 
             // txtProdDate
             // 
@@ -219,17 +210,15 @@
             btnHome.TabIndex = 19;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
-            btnHome.Click += btnHome_Click;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(364, 27);
+            btnClear.Location = new Point(367, 208);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 20;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
@@ -239,7 +228,6 @@
             btnAdd.TabIndex = 21;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -249,7 +237,6 @@
             btnUpdate.TabIndex = 22;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -259,7 +246,6 @@
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnAddItem
             // 
@@ -269,7 +255,6 @@
             btnAddItem.TabIndex = 24;
             btnAddItem.Text = "Add";
             btnAddItem.UseVisualStyleBackColor = true;
-            btnAddItem.Click += btnAddItem_Click;
             // 
             // btnUpdateItem
             // 
@@ -279,7 +264,6 @@
             btnUpdateItem.TabIndex = 25;
             btnUpdateItem.Text = "Update";
             btnUpdateItem.UseVisualStyleBackColor = true;
-            btnUpdateItem.Click += btnUpdateItem_Click;
             // 
             // btnDeleteItem
             // 
@@ -289,25 +273,13 @@
             btnDeleteItem.TabIndex = 26;
             btnDeleteItem.Text = "Delete";
             btnDeleteItem.UseVisualStyleBackColor = true;
-            btnDeleteItem.Click += btnDeleteItem_Click;
             // 
-            // btnClearItem
-            // 
-            btnClearItem.Location = new Point(364, 287);
-            btnClearItem.Name = "btnClearItem";
-            btnClearItem.Size = new Size(94, 29);
-            btnClearItem.TabIndex = 27;
-            btnClearItem.Text = "Clear";
-            btnClearItem.UseVisualStyleBackColor = true;
-            btnClearItem.Click += btnClearItem_Click;
-            // 
-            // formSupplyPermit
+            // ReleasePermit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 450);
             ControlBox = false;
-            Controls.Add(btnClearItem);
             Controls.Add(btnDeleteItem);
             Controls.Add(btnUpdateItem);
             Controls.Add(btnAddItem);
@@ -322,7 +294,7 @@
             Controls.Add(txtWarehouseId);
             Controls.Add(txtItemId);
             Controls.Add(txtPermitDate);
-            Controls.Add(txtSupplierId);
+            Controls.Add(txtClientId);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -335,7 +307,7 @@
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "formSupplyPermit";
+            Name = "ReleasePermit";
             ShowIcon = false;
             Text = "formSupplyPermit";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -358,7 +330,7 @@
         private Label label8;
         private Label label9;
         private Label label10;
-        private TextBox txtSupplierId;
+        private TextBox txtClientId;
         private TextBox txtPermitDate;
         private TextBox txtItemId;
         private TextBox txtWarehouseId;
@@ -373,6 +345,7 @@
         private Button btnAddItem;
         private Button btnUpdateItem;
         private Button btnDeleteItem;
-        private Button btnClearItem;
+
+
     }
 }

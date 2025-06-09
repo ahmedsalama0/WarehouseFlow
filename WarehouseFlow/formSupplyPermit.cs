@@ -55,7 +55,7 @@ namespace WarehouseFlow
                 P.PermitDate
             }).ToList();
 
-            dataGridView1.Columns["Id"].Visible = false;
+            //dataGridView1.Columns["Id"].Visible = false;
 
         }
 
@@ -117,7 +117,7 @@ namespace WarehouseFlow
                 dataGridView2.Columns["Id"].Visible = false;
                 dataGridView2.Columns["PermitId"].Visible = false;
 
-                }
+            }
         }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
@@ -171,7 +171,20 @@ namespace WarehouseFlow
                 ProductionDate = DateTime.Parse(txtProdDate.Text),
                 ShelfLife = int.Parse(txtShelfLife.Text)
             };
+
+            var storedItems = new WarehouseItem
+            {
+                ItemId = int.Parse(txtItemId.Text),
+                ProductionDate = DateTime.Parse(txtProdDate.Text),
+                ShelfLife = int.Parse(txtShelfLife.Text),
+                SupplierId = int.Parse(txtSupplierId.Text),
+                WarehouseId = int.Parse(txtWarehouseId.Text),
+                Quantity = int.Parse(txtQuantity.Text),
+                EntryDate = DateTime.Parse(txtProdDate.Text),
+            };
+
             _context.SuppliedItems.Add(suppliedItems);
+            _context.WarehouseItems.Add(storedItems);
             _context.SaveChanges();
             ClearInputs();
             LoadItems();
@@ -180,8 +193,15 @@ namespace WarehouseFlow
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
             int id2 = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
+            int itemId = int.Parse(txtItemId.Text);
+            DateTime prodDate = DateTime.Parse(txtProdDate.Text);
+            int shelfLife = int.Parse(txtShelfLife.Text);
             SuppliedItem si = _context.SuppliedItems.Find(id2);
-            if (si != null)
+            WarehouseItem wi = _context.WarehouseItems.Find(itemId, prodDate, shelfLife);
+
+            //Bug:// if the user wanna change one of the composite pk parts it will not execute
+            //Soln://make the pk Just an ID
+            if (si != null && wi != null)
             {
                 //si.PermitId = int.Parse(txtSupplierId.Text);
                 si.ItemId = int.Parse(txtItemId.Text);
@@ -190,6 +210,20 @@ namespace WarehouseFlow
                 si.ProductionDate = DateTime.Parse(txtProdDate.Text);
                 si.ShelfLife = int.Parse(txtShelfLife.Text);
 
+                //remove items from warehouse and re-add them (composite PK)
+                _context.WarehouseItems.Remove(wi);
+                _context.SaveChanges();
+
+                var storedItems = new WarehouseItem
+                {
+                    ItemId = int.Parse(txtItemId.Text),
+                    ProductionDate = DateTime.Parse(txtProdDate.Text),
+                    ShelfLife = int.Parse(txtShelfLife.Text),
+                    SupplierId = int.Parse(txtSupplierId.Text),
+                    WarehouseId = int.Parse(txtWarehouseId.Text),
+                    Quantity = int.Parse(txtQuantity.Text),
+                };
+                _context.WarehouseItems.Add(storedItems);
                 _context.SaveChanges();
                 ClearInputs();
                 LoadItems();
@@ -199,14 +233,25 @@ namespace WarehouseFlow
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
+
             var Res = _context.SuppliedItems.Find(id);
-            if(Res != null)
+
+            if (Res != null)
             {
                 _context.SuppliedItems.Remove(Res);
                 _context.SaveChanges();
                 ClearInputs();
                 LoadItems();
             }
+        }
+
+        private void btnClearItem_Click(object sender, EventArgs e)
+        {
+            txtItemId.Clear();
+            txtProdDate.Clear();
+            txtQuantity.Clear();
+            txtWarehouseId.Clear();
+            txtShelfLife.Clear();
         }
     }
 }

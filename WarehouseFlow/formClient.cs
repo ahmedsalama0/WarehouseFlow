@@ -30,7 +30,7 @@ namespace WarehouseFlow
             dataGridView1.DataSource = _context.Clients
                 .Select(s => new { s.Id, s.Name, s.Mobile, s.Fax, s.Phone, s.Email, s.Website })
                 .ToList();
-            dataGridView1.Columns["Id"].Visible = false;
+            //dataGridView1.Columns["Id"].Visible = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
