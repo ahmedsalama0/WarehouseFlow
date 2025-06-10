@@ -151,6 +151,7 @@ namespace WarehouseFlow
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+
             var suppliedItems = new SuppliedItem
             {
                 PermitId = (int)dataGridView1.CurrentRow.Cells["Id"].Value,
@@ -161,8 +162,6 @@ namespace WarehouseFlow
                 ShelfLife = int.Parse(txtShelfLife.Text)
             };
 
-            //var query = _context.WarehouseItems.Where(P => P.ShelfLife == 1).Select(P => P).ToList();
-            //MessageBox.Show(query.Count.ToString());
 
             var storedItems = new WarehouseItem
             {
@@ -173,10 +172,35 @@ namespace WarehouseFlow
                 WarehouseId = int.Parse(txtWarehouseId.Text),
                 Quantity = int.Parse(txtQuantity.Text),
                 EntryDate = DateTime.Parse(txtEntryDate.Text),
+
             };
 
+            var id = _context.WarehouseItems
+                .Where(P => P.ItemId == storedItems.ItemId /*&& P.Quantity == storedItems.Quantity*/)
+                .Where(P => P.ProductionDate == storedItems.ProductionDate && P.ShelfLife == storedItems.ShelfLife)
+                .Where(P => P.SupplierId == storedItems.SupplierId && P.WarehouseId == storedItems.WarehouseId)
+                .Where(P => P.EntryDate == storedItems.EntryDate)
+                .Select(P => P.Id)
+                .FirstOrDefault();
+            //MessageBox.Show(id.ToString());
+
             _context.SuppliedItems.Add(suppliedItems);
+            
+            if(id == 0)
+            {
             _context.WarehouseItems.Add(storedItems);
+            }
+            else
+            {
+                WarehouseItem item = _context.WarehouseItems.Find(id);
+                if(item != null)
+                {
+                   //MessageBox.Show(item.Quantity.ToString(), storedItems.Quantity.ToString());
+                   item.Quantity += storedItems.Quantity;
+                }
+
+            }
+
             _context.SaveChanges();
             ClearInputs();
             LoadItems();
@@ -184,42 +208,70 @@ namespace WarehouseFlow
 
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
-            int id2 = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
-            int itemId = int.Parse(txtItemId.Text);
-            DateTime prodDate = DateTime.Parse(txtProdDate.Text);
-            int shelfLife = int.Parse(txtShelfLife.Text);
-            SuppliedItem si = _context.SuppliedItems.Find(id2);
-            WarehouseItem wi = _context.WarehouseItems.Find(itemId, prodDate, shelfLife);
+            int id = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
+            
+            SuppliedItem si = _context.SuppliedItems.Find(id);
+            
 
+            //WarehouseItem wi_id = _context.WarehouseItems.Where();
             //Bug:// if the user wanna change one of the composite pk parts it will not execute
+            //SOLVED
           
-            if (si != null && wi != null)
+            if (si != null )
             {
-                //si.PermitId = int.Parse(txtSupplierId.Text);
-                si.ItemId = int.Parse(txtItemId.Text);
-                si.WarehouseId = int.Parse(txtWarehouseId.Text);
-                si.Quantity = int.Parse(txtQuantity.Text);
-                si.ProductionDate = DateTime.Parse(txtProdDate.Text);
-                si.ShelfLife = int.Parse(txtShelfLife.Text);
+                //find the corresponding warehouse item
 
-                //remove items from warehouse and re-add them (composite PK)
-                _context.WarehouseItems.Remove(wi);
-                _context.SaveChanges();
+                var warehouse_item_id = _context.WarehouseItems
+                .Where(P => P.ItemId == si.ItemId)
+                .Where(P => P.ProductionDate == si.ProductionDate && P.ShelfLife == si.ShelfLife)
+                .Where(P => P.SupplierId == int.Parse(txtSupplierId.Text) && P.WarehouseId == si.WarehouseId)
+                .Where(P => P.EntryDate == DateTime.Parse(txtEntryDate.Text))
+                .Select(P => P.Id)
+                .FirstOrDefault();
 
-                var storedItems = new WarehouseItem
+                if(warehouse_item_id != 0)
                 {
-                    ItemId = int.Parse(txtItemId.Text),
-                    ProductionDate = DateTime.Parse(txtProdDate.Text),
-                    ShelfLife = int.Parse(txtShelfLife.Text),
-                    SupplierId = int.Parse(txtSupplierId.Text),
-                    WarehouseId = int.Parse(txtWarehouseId.Text),
-                    Quantity = int.Parse(txtQuantity.Text),
-                    EntryDate = DateTime.Parse(txtEntryDate.Text),
-                };
-                _context.WarehouseItems.Add(storedItems);
-                _context.SaveChanges();
-                ClearInputs();
-                LoadItems();
+
+                    WarehouseItem wi = _context.WarehouseItems.Find(warehouse_item_id);
+                    int oldQty = si.Quantity;
+                    int newQty = int.Parse(txtQuantity.Text);
+
+
+                    //si.PermitId = int.Parse(txtSupplierId.Text);
+                    si.ItemId = int.Parse(txtItemId.Text);
+                    si.WarehouseId = int.Parse(txtWarehouseId.Text);
+                    si.Quantity = int.Parse(txtQuantity.Text);
+                    si.ProductionDate = DateTime.Parse(txtProdDate.Text);
+                    si.ShelfLife = int.Parse(txtShelfLife.Text);
+
+                    //remove items from warehouse and re-add them (composite PK)
+                   // _context.WarehouseItems.Remove(wi);
+                    //var storedItems = new WarehouseItem
+                    //{
+                    //    ItemId = int.Parse(txtItemId.Text),
+                    //    ProductionDate = DateTime.Parse(txtProdDate.Text),
+                    //    ShelfLife = int.Parse(txtShelfLife.Text),
+                    //    SupplierId = int.Parse(txtSupplierId.Text),
+                    //    WarehouseId = int.Parse(txtWarehouseId.Text),
+                    //    Quantity = int.Parse(txtQuantity.Text),
+                    //    EntryDate = DateTime.Parse(txtEntryDate.Text),
+                    //};
+                    //_context.WarehouseItems.Add(storedItems);
+
+                    //Schema changed...
+                    if(wi.Quantity - oldQty + newQty >= 0)
+                    {
+                        wi.Quantity += -oldQty + newQty;
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Operation");
+                    }
+
+                    ClearInputs();
+                    LoadItems();
+                }
             }
         }
 
@@ -228,15 +280,12 @@ namespace WarehouseFlow
             int id = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
 
             var Res = _context.SuppliedItems.Find(id);
-            int itemId = int.Parse(txtItemId.Text);
-            DateTime prodDate = DateTime.Parse(txtProdDate.Text);
-            int shelfLife = int.Parse(txtShelfLife.Text);
-            WarehouseItem wi = _context.WarehouseItems.Find(itemId, prodDate, shelfLife);
+            
 
-            if (Res != null && wi != null)
+            if (Res != null )
             {
                 _context.SuppliedItems.Remove(Res);
-                _context.WarehouseItems.Remove(wi);
+               // _context.WarehouseItems.Remove(wi);
                 _context.SaveChanges();
                 ClearInputs();
                 LoadItems();
