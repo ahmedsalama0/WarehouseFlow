@@ -35,7 +35,7 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            txtClientId = new TextBox();
+            txtSupplierId = new TextBox();
             txtPermitDate = new TextBox();
             txtItemId = new TextBox();
             txtWarehouseId = new TextBox();
@@ -50,6 +50,7 @@
             btnAddItem = new Button();
             btnUpdateItem = new Button();
             btnDeleteItem = new Button();
+            btnClearItem = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -77,27 +78,27 @@
             label1.AutoSize = true;
             label1.Location = new Point(485, 5);
             label1.Name = "label1";
-            label1.Size = new Size(142, 20);
+            label1.Size = new Size(230, 20);
             label1.TabIndex = 2;
-            label1.Text = "Release Permit Data";
+            label1.Text = "Disbursement Authorization Data";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(485, 227);
             label2.Name = "label2";
-            label2.Size = new Size(145, 20);
+            label2.Size = new Size(151, 20);
             label2.TabIndex = 3;
-            label2.Text = "Released Items Data";
+            label2.Text = "Disbursed Items Data";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(12, 5);
             label3.Name = "label3";
-            label3.Size = new Size(66, 20);
+            label3.Size = new Size(83, 20);
             label3.TabIndex = 4;
-            label3.Text = "Client ID";
+            label3.Text = "Supplier ID";
             // 
             // label4
             // 
@@ -153,12 +154,12 @@
             label9.TabIndex = 10;
             label9.Text = "Shelf Life";
             // 
-            // txtClientId
+            // txtSupplierId
             // 
-            txtClientId.Location = new Point(12, 28);
-            txtClientId.Name = "txtClientId";
-            txtClientId.Size = new Size(125, 27);
-            txtClientId.TabIndex = 12;
+            txtSupplierId.Location = new Point(12, 28);
+            txtSupplierId.Name = "txtSupplierId";
+            txtSupplierId.Size = new Size(125, 27);
+            txtSupplierId.TabIndex = 12;
             // 
             // txtPermitDate
             // 
@@ -213,7 +214,7 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(367, 208);
+            btnClear.Location = new Point(363, 26);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 20;
@@ -274,12 +275,22 @@
             btnDeleteItem.Text = "Delete";
             btnDeleteItem.UseVisualStyleBackColor = true;
             // 
+            // btnClearItem
+            // 
+            btnClearItem.Location = new Point(363, 289);
+            btnClearItem.Name = "btnClearItem";
+            btnClearItem.Size = new Size(94, 29);
+            btnClearItem.TabIndex = 27;
+            btnClearItem.Text = "Clear";
+            btnClearItem.UseVisualStyleBackColor = true;
+            // 
             // ReleasePermit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 450);
             ControlBox = false;
+            Controls.Add(btnClearItem);
             Controls.Add(btnDeleteItem);
             Controls.Add(btnUpdateItem);
             Controls.Add(btnAddItem);
@@ -294,7 +305,7 @@
             Controls.Add(txtWarehouseId);
             Controls.Add(txtItemId);
             Controls.Add(txtPermitDate);
-            Controls.Add(txtClientId);
+            Controls.Add(txtSupplierId);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -309,7 +320,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "ReleasePermit";
             ShowIcon = false;
-            Text = "formSupplyPermit";
+            Text = "formDisbursementAuthorization";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
@@ -330,7 +341,7 @@
         private Label label8;
         private Label label9;
         private Label label10;
-        private TextBox txtClientId;
+        private TextBox txtSupplierId;
         private TextBox txtPermitDate;
         private TextBox txtItemId;
         private TextBox txtWarehouseId;
@@ -345,7 +356,6 @@
         private Button btnAddItem;
         private Button btnUpdateItem;
         private Button btnDeleteItem;
-
-
+        private Button btnClearItem;
     }
 }

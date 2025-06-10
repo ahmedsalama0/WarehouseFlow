@@ -20,6 +20,6 @@ namespace WarehouseFlow
         [StringLength(100)] public string? Email { get; set; }
         [StringLength(100)] public string? Website { get; set; }
 
-        public ICollection<ReleaseOrder> ReleaseOrders { get; set; } = new List<ReleaseOrder>();
+        
     }
 }

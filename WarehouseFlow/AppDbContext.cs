@@ -83,9 +83,9 @@ namespace WarehouseFlow
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ReleaseOrder>()
-                .HasOne(o => o.Client)
+                .HasOne(o => o.Supplier)
                 .WithMany(c => c.ReleaseOrders)
-                .HasForeignKey(o => o.ClientId)
+                .HasForeignKey(o => o.SupplierId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<WarehouseItem>()

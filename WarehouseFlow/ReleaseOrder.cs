@@ -12,10 +12,10 @@ namespace WarehouseFlow
     {
         [Key]
         public int Id { get; set; }
-        public int ClientId { get; set; }
+        public int SupplierId { get; set; }
         public DateTime OrderDate { get; set; }
 
-        public Client Client { get; set; } = null!;
+        public Supplier Supplier { get; set; } = null!;
         public ICollection<ReleasedItem> ReleasedItems { get; set; } = new List<ReleasedItem>();
     }
 }
