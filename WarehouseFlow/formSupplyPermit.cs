@@ -257,7 +257,7 @@ namespace WarehouseFlow
                     //_context.WarehouseItems.Add(storedItems);
 
                     //Schema changed...
-                    if(wi.Quantity - oldQty + newQty >= 0)
+                    if(wi != null && wi.Quantity - oldQty + newQty >= 0)
                     {
                         wi.Quantity += -oldQty + newQty;
                         _context.SaveChanges();

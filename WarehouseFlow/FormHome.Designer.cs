@@ -35,6 +35,7 @@
             btnClient = new Button();
             btnExit = new Button();
             btnSupplyPermit = new Button();
+            btnReleasePermit = new Button();
             SuspendLayout();
             // 
             // textBoxMain
@@ -112,12 +113,23 @@
             btnSupplyPermit.UseVisualStyleBackColor = true;
             btnSupplyPermit.Click += btnSupplyPermit_Click;
             // 
+            // btnReleasePermit
+            // 
+            btnReleasePermit.Location = new Point(754, 155);
+            btnReleasePermit.Name = "btnReleasePermit";
+            btnReleasePermit.Size = new Size(173, 49);
+            btnReleasePermit.TabIndex = 7;
+            btnReleasePermit.Text = "Disbursement Authorization";
+            btnReleasePermit.UseVisualStyleBackColor = true;
+            btnReleasePermit.Click += btnReleasePermit_Click;
+            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 453);
             ControlBox = false;
+            Controls.Add(btnReleasePermit);
             Controls.Add(btnSupplyPermit);
             Controls.Add(btnExit);
             Controls.Add(btnClient);
@@ -144,5 +156,6 @@
         private Button btnClient;
         private Button btnExit;
         private Button btnSupplyPermit;
+        private Button btnReleasePermit;
     }
 }

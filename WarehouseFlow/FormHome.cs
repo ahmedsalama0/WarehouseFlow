@@ -89,5 +89,13 @@ namespace WarehouseFlow
             sp.Show();
 
         }
+
+        private void btnReleasePermit_Click(object sender, EventArgs e)
+        {
+            ReleasePermit rp = new ReleasePermit();
+            rp.FormClosed += (s, e) => this.Show();
+            this.Hide();
+            rp.Show();
+        }
     }
 }

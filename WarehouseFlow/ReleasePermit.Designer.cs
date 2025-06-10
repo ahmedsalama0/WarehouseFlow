@@ -33,15 +33,11 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
             txtSupplierId = new TextBox();
             txtPermitDate = new TextBox();
             txtItemId = new TextBox();
             txtWarehouseId = new TextBox();
             txtQuantity = new TextBox();
-            txtProdDate = new TextBox();
-            txtShelfLife = new TextBox();
             btnHome = new Button();
             btnClear = new Button();
             btnAdd = new Button();
@@ -51,6 +47,7 @@
             btnUpdateItem = new Button();
             btnDeleteItem = new Button();
             btnClearItem = new Button();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -136,24 +133,6 @@
             label7.TabIndex = 8;
             label7.Text = "Quantity";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(156, 204);
-            label8.Name = "label8";
-            label8.Size = new Size(117, 20);
-            label8.TabIndex = 9;
-            label8.Text = "Production Date";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(12, 266);
-            label9.Name = "label9";
-            label9.Size = new Size(70, 20);
-            label9.TabIndex = 10;
-            label9.Text = "Shelf Life";
-            // 
             // txtSupplierId
             // 
             txtSupplierId.Location = new Point(12, 28);
@@ -189,20 +168,6 @@
             txtQuantity.Size = new Size(125, 27);
             txtQuantity.TabIndex = 16;
             // 
-            // txtProdDate
-            // 
-            txtProdDate.Location = new Point(156, 227);
-            txtProdDate.Name = "txtProdDate";
-            txtProdDate.Size = new Size(125, 27);
-            txtProdDate.TabIndex = 17;
-            // 
-            // txtShelfLife
-            // 
-            txtShelfLife.Location = new Point(12, 289);
-            txtShelfLife.Name = "txtShelfLife";
-            txtShelfLife.Size = new Size(125, 27);
-            txtShelfLife.TabIndex = 18;
-            // 
             // btnHome
             // 
             btnHome.Location = new Point(12, 409);
@@ -211,6 +176,7 @@
             btnHome.TabIndex = 19;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // btnClear
             // 
@@ -220,6 +186,7 @@
             btnClear.TabIndex = 20;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
@@ -229,6 +196,7 @@
             btnAdd.TabIndex = 21;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -238,6 +206,7 @@
             btnUpdate.TabIndex = 22;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -247,6 +216,7 @@
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAddItem
             // 
@@ -256,6 +226,7 @@
             btnAddItem.TabIndex = 24;
             btnAddItem.Text = "Add";
             btnAddItem.UseVisualStyleBackColor = true;
+            btnAddItem.Click += btnAddItem_Click;
             // 
             // btnUpdateItem
             // 
@@ -265,6 +236,7 @@
             btnUpdateItem.TabIndex = 25;
             btnUpdateItem.Text = "Update";
             btnUpdateItem.UseVisualStyleBackColor = true;
+            btnUpdateItem.Click += btnUpdateItem_Click;
             // 
             // btnDeleteItem
             // 
@@ -274,15 +246,22 @@
             btnDeleteItem.TabIndex = 26;
             btnDeleteItem.Text = "Delete";
             btnDeleteItem.UseVisualStyleBackColor = true;
+            btnDeleteItem.Click += btnDeleteItem_Click;
             // 
             // btnClearItem
             // 
-            btnClearItem.Location = new Point(363, 289);
+            btnClearItem.Location = new Point(363, 204);
             btnClearItem.Name = "btnClearItem";
             btnClearItem.Size = new Size(94, 29);
             btnClearItem.TabIndex = 27;
             btnClearItem.Text = "Clear";
             btnClearItem.UseVisualStyleBackColor = true;
+            btnClearItem.Click += btnClearItem_Click;
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // ReleasePermit
             // 
@@ -299,15 +278,11 @@
             Controls.Add(btnAdd);
             Controls.Add(btnClear);
             Controls.Add(btnHome);
-            Controls.Add(txtShelfLife);
-            Controls.Add(txtProdDate);
             Controls.Add(txtQuantity);
             Controls.Add(txtWarehouseId);
             Controls.Add(txtItemId);
             Controls.Add(txtPermitDate);
             Controls.Add(txtSupplierId);
-            Controls.Add(label9);
-            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -338,16 +313,12 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private Label label8;
-        private Label label9;
         private Label label10;
         private TextBox txtSupplierId;
         private TextBox txtPermitDate;
         private TextBox txtItemId;
         private TextBox txtWarehouseId;
         private TextBox txtQuantity;
-        private TextBox txtProdDate;
-        private TextBox txtShelfLife;
         private Button btnHome;
         private Button btnClear;
         private Button btnAdd;
@@ -357,5 +328,6 @@
         private Button btnUpdateItem;
         private Button btnDeleteItem;
         private Button btnClearItem;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
