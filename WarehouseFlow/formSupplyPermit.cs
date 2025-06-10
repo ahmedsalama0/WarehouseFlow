@@ -24,10 +24,7 @@ namespace WarehouseFlow
         }
 
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearInputs();
-        }
+       
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -113,6 +110,7 @@ namespace WarehouseFlow
         {
             if (dataGridView2.CurrentRow != null)
             {
+                ClearItemFields();
                 txtItemId.Text = dataGridView2.CurrentRow.Cells["ItemId"].Value?.ToString();
                 txtWarehouseId.Text = dataGridView2.CurrentRow.Cells["WarehouseId"].Value?.ToString();
                 txtQuantity.Text = dataGridView2.CurrentRow.Cells["Quantity"].Value?.ToString();
@@ -279,36 +277,65 @@ namespace WarehouseFlow
         {
             int id = (int)dataGridView2.CurrentRow.Cells["Id"].Value;
 
-            var Res = _context.SuppliedItems.Find(id);
+            var si = _context.SuppliedItems.Find(id);
             
 
-            if (Res != null )
+            if (si != null )
             {
-                _context.SuppliedItems.Remove(Res);
-               // _context.WarehouseItems.Remove(wi);
-                _context.SaveChanges();
-                ClearInputs();
-                LoadItems();
+                var warehouse_item_id = _context.WarehouseItems
+                .Where(P => P.ItemId == si.ItemId)
+                .Where(P => P.ProductionDate == si.ProductionDate && P.ShelfLife == si.ShelfLife)
+                .Where(P => P.SupplierId == int.Parse(txtSupplierId.Text) && P.WarehouseId == si.WarehouseId)
+                .Where(P => P.EntryDate == DateTime.Parse(txtEntryDate.Text))
+                .Select(P => P.Id)
+                .FirstOrDefault();
+
+                WarehouseItem wi = _context.WarehouseItems.Find(warehouse_item_id);
+                int OldQty = si.Quantity;
+
+                if(wi != null)
+                {
+                    if(wi.Quantity < OldQty)
+                    {
+                        MessageBox.Show("Invalid Operation!");
+                    } else
+                    {
+                        if (wi.Quantity > OldQty)
+                            wi.Quantity -= OldQty;
+                        else if (wi.Quantity == OldQty)
+                            _context.WarehouseItems.Remove(wi);
+
+                        _context.SuppliedItems.Remove(si);
+                        _context.SaveChanges();
+                        ClearInputs();
+                        LoadItems();
+                    }
+                }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearInputs();
         }
 
         private void btnClearItem_Click(object sender, EventArgs e)
         {
-            txtItemId.Clear();
-            txtProdDate.Clear();
-            txtQuantity.Clear();
-            txtWarehouseId.Clear();
-            txtShelfLife.Clear();
-            txtEntryDate.Clear();
+            ClearItemFields();
         }
 
         public void ClearInputs()
         {
-            txtItemId.Clear();
             txtPermitDate.Clear();
+            txtSupplierId.Clear();
+            ClearItemFields();
+        }
+
+        public void ClearItemFields()
+        {
+            txtItemId.Clear();
             txtProdDate.Clear();
             txtQuantity.Clear();
-            txtSupplierId.Clear();
             txtWarehouseId.Clear();
             txtShelfLife.Clear();
             txtEntryDate.Clear();
