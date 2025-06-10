@@ -9,12 +9,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WarehouseFlow
 {
-    [PrimaryKey(nameof(ItemId), nameof(ProductionDate), nameof(ShelfLife))]
+    //[PrimaryKey(nameof(ItemId), nameof(ProductionDate), nameof(ShelfLife))]
     public class WarehouseItem
     {
-        [Column(Order = 0)] public int ItemId { get; set; }
-        [Column(Order = 1)] public DateTime ProductionDate { get; set; }
-        [Column(Order = 2)] public int ShelfLife { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        public int ItemId { get; set; }
+        public DateTime ProductionDate { get; set; }
+        public int ShelfLife { get; set; }
+
+
+        //[Column(Order = 0)] public int ItemId { get; set; }
+        //[Column(Order = 1)] public DateTime ProductionDate { get; set; }
+        //[Column(Order = 2)] public int ShelfLife { get; set; }
 
         public int WarehouseId { get; set; }
         public int SupplierId { get; set; }

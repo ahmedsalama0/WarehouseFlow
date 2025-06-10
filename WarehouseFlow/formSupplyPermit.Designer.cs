@@ -55,6 +55,8 @@
             btnUpdateItem = new Button();
             btnDeleteItem = new Button();
             btnClearItem = new Button();
+            label11 = new Label();
+            txtEntryDate = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -301,12 +303,30 @@
             btnClearItem.UseVisualStyleBackColor = true;
             btnClearItem.Click += btnClearItem_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(156, 266);
+            label11.Name = "label11";
+            label11.Size = new Size(78, 20);
+            label11.TabIndex = 28;
+            label11.Text = "Entry Date";
+            // 
+            // txtEntryDate
+            // 
+            txtEntryDate.Location = new Point(156, 289);
+            txtEntryDate.Name = "txtEntryDate";
+            txtEntryDate.Size = new Size(125, 27);
+            txtEntryDate.TabIndex = 29;
+            // 
             // formSupplyPermit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 450);
             ControlBox = false;
+            Controls.Add(txtEntryDate);
+            Controls.Add(label11);
             Controls.Add(btnClearItem);
             Controls.Add(btnDeleteItem);
             Controls.Add(btnUpdateItem);
@@ -374,5 +394,7 @@
         private Button btnUpdateItem;
         private Button btnDeleteItem;
         private Button btnClearItem;
+        private Label label11;
+        private TextBox txtEntryDate;
     }
 }
