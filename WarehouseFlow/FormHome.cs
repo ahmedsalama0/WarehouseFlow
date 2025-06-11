@@ -97,5 +97,13 @@ namespace WarehouseFlow
             this.Hide();
             rp.Show();
         }
+
+        private void btnTransferItems_Click(object sender, EventArgs e)
+        {
+            formTransferItems fti = new formTransferItems();
+            fti.FormClosed += (s, e) => this.Show();
+            this.Hide();
+            fti.Show();
+        }
     }
 }

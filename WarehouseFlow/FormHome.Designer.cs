@@ -36,6 +36,8 @@
             btnExit = new Button();
             btnSupplyPermit = new Button();
             btnReleasePermit = new Button();
+            btnTransferItems = new Button();
+            btnReports = new Button();
             SuspendLayout();
             // 
             // textBoxMain
@@ -63,7 +65,7 @@
             // 
             // btnItem
             // 
-            btnItem.Location = new Point(38, 155);
+            btnItem.Location = new Point(38, 165);
             btnItem.Name = "btnItem";
             btnItem.Size = new Size(173, 29);
             btnItem.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             // btnSupplier
             // 
-            btnSupplier.Location = new Point(38, 224);
+            btnSupplier.Location = new Point(38, 244);
             btnSupplier.Name = "btnSupplier";
             btnSupplier.Size = new Size(173, 29);
             btnSupplier.TabIndex = 3;
@@ -83,7 +85,7 @@
             // 
             // btnClient
             // 
-            btnClient.Location = new Point(38, 293);
+            btnClient.Location = new Point(38, 323);
             btnClient.Name = "btnClient";
             btnClient.Size = new Size(173, 29);
             btnClient.TabIndex = 4;
@@ -115,13 +117,32 @@
             // 
             // btnReleasePermit
             // 
-            btnReleasePermit.Location = new Point(754, 155);
+            btnReleasePermit.Location = new Point(754, 165);
             btnReleasePermit.Name = "btnReleasePermit";
-            btnReleasePermit.Size = new Size(173, 49);
+            btnReleasePermit.Size = new Size(173, 29);
             btnReleasePermit.TabIndex = 7;
-            btnReleasePermit.Text = "Disbursement Authorization";
+            btnReleasePermit.Text = "Disbursement Auth.";
             btnReleasePermit.UseVisualStyleBackColor = true;
             btnReleasePermit.Click += btnReleasePermit_Click;
+            // 
+            // btnTransferItems
+            // 
+            btnTransferItems.Location = new Point(754, 244);
+            btnTransferItems.Name = "btnTransferItems";
+            btnTransferItems.Size = new Size(173, 29);
+            btnTransferItems.TabIndex = 8;
+            btnTransferItems.Text = "Transfer Items";
+            btnTransferItems.UseVisualStyleBackColor = true;
+            btnTransferItems.Click += btnTransferItems_Click;
+            // 
+            // btnReports
+            // 
+            btnReports.Location = new Point(754, 323);
+            btnReports.Name = "btnReports";
+            btnReports.Size = new Size(173, 29);
+            btnReports.TabIndex = 9;
+            btnReports.Text = "Reports";
+            btnReports.UseVisualStyleBackColor = true;
             // 
             // FormHome
             // 
@@ -129,6 +150,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 453);
             ControlBox = false;
+            Controls.Add(btnReports);
+            Controls.Add(btnTransferItems);
             Controls.Add(btnReleasePermit);
             Controls.Add(btnSupplyPermit);
             Controls.Add(btnExit);
@@ -157,5 +180,7 @@
         private Button btnExit;
         private Button btnSupplyPermit;
         private Button btnReleasePermit;
+        private Button btnTransferItems;
+        private Button btnReports;
     }
 }
