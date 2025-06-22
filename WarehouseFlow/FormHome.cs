@@ -2,27 +2,13 @@ namespace WarehouseFlow
 {
     public partial class FormHome : Form
     {
-
-
-
-
-
-        //formTemplate formClient = new formTemplate();
-        //formTemplate formSupplyPermit = new formTemplate();
-        //formTemplate formReleasePermit = new formTemplate();
-
-
-
+        
+        //Input Validation
+        //Exception Handling
 
         public FormHome()
         {
             InitializeComponent();
-            //formWarehouse.FormClosed += (s, e) => this.Visible = true;
-            //formItem.FormClosed += (s, e) => this.Visible = true;
-            //formSupplier.FormClosed += (s, e) => this.Visible = true;
-            //formClient.FormClosed += (s, e) => this.Visible = true;
-            //formSupplyPermit.FormClosed += (s, e) => this.Visible = true;
-            //formReleasePermit.FormClosed += (s, e) => this.Visible = true;
 
         }
 
@@ -104,6 +90,14 @@ namespace WarehouseFlow
             fti.FormClosed += (s, e) => this.Show();
             this.Hide();
             fti.Show();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            formReport fr = new formReport();
+            fr.FormClosed += (s, e) => this.Show();
+            this.Hide();
+            fr.Show();
         }
     }
 }

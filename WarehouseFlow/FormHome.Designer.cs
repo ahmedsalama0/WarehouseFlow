@@ -143,6 +143,7 @@
             btnReports.TabIndex = 9;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // FormHome
             // 
